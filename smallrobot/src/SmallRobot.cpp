@@ -32,13 +32,13 @@ SmallRobot::SmallRobot(int leftWheelPin, int rightWheelPin, float wheelDistance,
     this->flickerPin = flickerPin;
 }
 
-void SmallRobot::flickRight()
+void SmallRobot::setFlicker(int flickerValue)
 {
     /*
     Activates the microservo at the front of robot to push the top pom to the right
     */
     enable_servo(this->flickerPin);
-    set_servo_position(this->flickerPin, #figure out this value);
+    set_servo_position(this->flickerPin, flickerValue;
 }
 
 void SmallRobot::moveDistanceAndCorrect(float distance, int ticksPerSecond, bool condition)
