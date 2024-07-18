@@ -5,7 +5,7 @@
 
 const float PI = 3.14159265358979323846;
 
-SmallRobot::SmallRobot(int leftWheelPin, int rightWheelPin, float wheelDistance, float wheelRadius, int leftTicksPerRevolution, int rightTicksPerRevolution, int leftLightPin, int rightLightPin, int clawServoPin, int armServoPin, int leftThreshold, int rightThreshold)
+SmallRobot::SmallRobot(int leftWheelPin, int rightWheelPin, float wheelDistance, float wheelRadius, int leftTicksPerRevolution, int rightTicksPerRevolution, int leftLightPin, int rightLightPin, int clawServoPin, int armServoPin, int leftThreshold, int rightThreshold, int flickerPin)
 {
     this->leftWheelPin = leftWheelPin;
     this->rightWheelPin = rightWheelPin;
@@ -25,9 +25,20 @@ SmallRobot::SmallRobot(int leftWheelPin, int rightWheelPin, float wheelDistance,
 
     this->leftThreshold = leftThreshold;
     this->rightThreshold = rightThreshold;
-
+    
     cmpc(this->leftWheelPin);
     cmpc(this->rightWheelPin);
+
+    this->flickerPin = flickerPin;
+}
+
+void SmallRobot::flickRight()
+{
+    /*
+    Activates the microservo at the front of robot to push the top pom to the right
+    */
+    enable_servo(this->flickerPin);
+    set_servo_position(this->flickerPin, #figure out this value);
 }
 
 void SmallRobot::moveDistanceAndCorrect(float distance, int ticksPerSecond, bool condition)
